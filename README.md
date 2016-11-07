@@ -14,7 +14,7 @@ The ones we're most concerned with for our app are the following:
 
 **FINAL PRODUCT**:
 
-[![Deck of Cards Demo](http://img.youtube.com/vi/_wLx2srsSQM/0.jpg)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Deck of Cards Demo")
+[![Deck of Cards Demo](http://img.youtube.com/vi/_wLx2srsSQM/0.jpg)](https://www.youtube.com/watch?v=_wLx2srsSQM "Deck of Cards Demo")
 
 # Instructions
 
