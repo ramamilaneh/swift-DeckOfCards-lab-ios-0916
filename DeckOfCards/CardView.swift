@@ -14,7 +14,12 @@ class CardView: UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var imageView: UIImageView!
-    
+    weak var card: Card! {
+        didSet {
+            updateViewToReflectNewCard()
+        }
+        
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,6 +51,17 @@ extension CardView {
     fileprivate func updateViewToReflectNewCard() {
         
         // TODO: Update the view accordingly
+        if card.image == nil {
+            card.downloadImage(completion: { (success) in
+            DispatchQueue.main.async {
+                    self.imageView.image = self.card.image
+                    print(success)
+                }
+                
+            })
+        }else{
+            print("there is no more cards")
+        }
         
     }
 
