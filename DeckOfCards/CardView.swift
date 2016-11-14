@@ -40,7 +40,7 @@ class CardView: UIView {
         setupGestureRecognizer()
     }
     
- 
+    
     
 }
 
@@ -53,7 +53,7 @@ extension CardView {
         // TODO: Update the view accordingly
         if card.image == nil {
             card.downloadImage(completion: { (success) in
-            DispatchQueue.main.async {
+                DispatchQueue.main.async {
                     self.imageView.image = self.card.image
                     print(success)
                 }
@@ -64,28 +64,38 @@ extension CardView {
         }
         
     }
-
+    
 }
 
 
 // MARK: - Pan Gestures
 extension CardView {
     
-     func setupGestureRecognizer() {
+    func setupGestureRecognizer() {
         
         // TODO: Setup Pan Gesture Recognizer
         
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(viewMoved(_:)))
+        self.addGestureRecognizer(gesture)
+        
         
         
     }
     
-     func viewMoved(_ gesture: UIPanGestureRecognizer) {
+    func viewMoved(_ gesture: UIPanGestureRecognizer) {
         
         // TODO: Update self.center to reflect the new center
-        
+        let translation = gesture.translation(in: contentView)
+        if let view = gesture.view {
+            view.center = CGPoint(x: view.center.x + translation.x,
+                                  y: view.center.y + translation.y)
+        }
+        gesture.setTranslation(CGPoint.zero, in: contentView)
     }
     
 }
+
+
 
 
 
